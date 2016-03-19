@@ -6,11 +6,6 @@ import numpy as np
 import pylab as pl
 from sklearn import datasets
 from sklearn.tree import DecisionTreeRegressor
-
-################################
-### ADD EXTRA LIBRARIES HERE ###
-################################
-
 from sklearn.grid_search import GridSearchCV
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import mean_squared_error, make_scorer
@@ -30,13 +25,6 @@ def explore_city_data(city_data):
     housing_prices = city_data.target
     housing_features = city_data.data
 
-    ###################################
-    ### Step 1. YOUR CODE GOES HERE ###
-    ###################################
-
-    # Please calculate the following values using the Numpy library
-    # Size of data (number of houses)?
-    # Number of features?
 
     number_of_houses, number_of_features = np.shape(housing_features)
     print "Number of houses: " + str(number_of_houses)
@@ -61,12 +49,9 @@ def explore_city_data(city_data):
 def split_data(city_data):
     """Randomly shuffle the sample set. Divide it into 70 percent training and 30 percent testing data."""
 
-    # Get the features and labels from the Boston housing data
     X, y = city_data.data, city_data.target
 
-    ###################################
-    ### Step 2. YOUR CODE GOES HERE ###
-    ###################################
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
     return X_train, y_train, X_test, y_test
@@ -75,12 +60,6 @@ def split_data(city_data):
 def performance_metric(label, prediction):
     """Calculate and return the appropriate error performance metric."""
 
-    ###################################
-    ### Step 3. YOUR CODE GOES HERE ###
-    ###################################
-
-    # The following page has a table of scoring functions in sklearn:
-    # http://scikit-learn.org/stable/modules/classes.html#sklearn-metrics-metrics
     return mean_squared_error(label, prediction)
 
 
@@ -174,9 +153,6 @@ def fit_predict_model(city_data):
 
     parameters = {'max_depth':(1,2,3,4,5,6,7,8,9,10)}
 
-    ###################################
-    ### Step 4. YOUR CODE GOES HERE ###
-    ###################################
 
     # 1. Find an appropriate performance metric. This should be the same as the
     # one used in your performance_metric procedure above:
